@@ -1,0 +1,69 @@
+{% extends 'core/base.html' %}
+
+
+{% block content %}
+
+{% load static %}
+
+<div class="container">
+  <div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'img/carru1.jpg' %}" class="d-block w-100" alt="carru1">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'img/carru2.jpg' %}" class="d-block w-100" alt="carru2">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'img/carru3.jpg' %}" class="d-block w-100" alt="carru3">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+<br>
+<div class="container-fluid">
+  <div class="row p-5 bg-dark text-white">
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <img src="{% static 'img/madrepro.jpg' %}" alt="" height="500" width="500">
+    </div>
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <div class="h1 text-center">Bienvenidos tengan los niños al nuevo futuro.</div>
+      <br>
+      <p class="h3 text-justify">Como profesional sientete en libertad de poder ser el padre/madre que tu hijo necesita, realizando las metas tanto para tu futuro como para el suyo <div class="h3 text-danger"><3.</div></p>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row p-5 bg-warning">
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <div class="h1 text-center">Son igual de importantes tanto como para ti como para nosotros.</div>
+      <br>
+      <p class="h3 text-justify">Entregar nuestro servicio para forjar su futuro, puedes reservar en el siguiente link <a href="{% url 'reservar' %}" class="text-danger text-decoration-none">Reserva Aqui</a></p>
+    </div>
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <img src="{% static 'img/entregaramor.jpg' %}" alt="">
+    </div>
+    
+  </div>
+</div>
+
+
+{% endblock %}

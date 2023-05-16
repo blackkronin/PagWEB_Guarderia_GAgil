@@ -1,0 +1,93 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row p-5 bg-primary">
+        <div class="col-sm-12 col-md-6 col lg-8">
+            <p style="font-size: 4rem;font-family: 'Roboto',sans-serif;">Reserva tu hora con nosotros, adaptamos a tu
+                horario y tiempo.</p>
+            <div class="h1">Porfavor no olvides indicar todos los datos solicitados, asi tendremos mucha mejor
+                comunicación.</div>
+        </div>
+        <div class="col-sm-12 col-md-6 col lg-4">
+            <img src="{% static 'img/reservar.png' %}" alt="">
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="h3 text-center text-danger">Reserva aqui!</div>
+                    <form action="/registrarReserva/" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" id="txtCodigo" name="txtCodigo" class="form-control" placeholder="Código reserva"
+                            minlength="6" maxlength="6" required>
+                        </div><br>
+                        <div class="form-group">
+                            <input type="text" id="txtNombrehijo" name="txtNombrehijo" class="form-control"
+                            placeholder="Nombre hijo/a" minlength="10" maxlength="25" required>
+                        </div><br>
+                        <div class="form-group">
+                            <input type="text" id="numRuthijo" name="numRuthijo" class="form-control"
+                            placeholder="Rut hijo/a" minlength="12" maxlength="12" required>
+                        </div><br>
+                        <div class="form-group">
+                            <input type="date" id="fechaReserva" name="fechaReserva" class="form-control"
+                            placeholder="Qué día reserva" required>
+                        </div><br>
+                        <div class="form-group">
+                            <input type="text" id="horasReservadas" name="horasReservadas" class="form-control"
+                            placeholder="Horas que reservará" minlength="1" maxlength="4" value="1" required>
+                        </div><br>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">Reservar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+            <table class="table-responsive py-2">
+                <table class="table table-striped">
+                    <div class="h1 text-center">Listado de Reservas</div>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre Hijo/a</th>
+                            <th>Rut Hijo/a</th>
+                            <th>Fecha de Reserva</th>
+                            <th>Horas Reservadas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for r in reservas %}
+                        <tr>
+                            <td>{{r.cod}}</td>
+                            <td>{{r.nombrehijo}}</td>
+                            <td>{{r.ruthijo}}</td>
+                            <td>{{r.fecha}}</td>
+                            <td>{{r.horas_reserva}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+<br>
+
+
+
+
+
+{% endblock %}
